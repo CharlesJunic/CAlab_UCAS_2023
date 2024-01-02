@@ -23,8 +23,8 @@ module mycpu_core(
     output wire [ 3:0] debug_wb_rf_we,
     output wire [ 4:0] debug_wb_rf_wnum,
     output wire [31:0] debug_wb_rf_wdata,
-    output wire [31:0] inst_addr_vrtl,
-    output wire        inst_mem_type
+    output wire [31:0] inst_addr_vrtl
+    //output wire        inst_mem_type
 );
 
 reg          reset;
@@ -59,7 +59,7 @@ wire [1:0] csr_crmd_datf;
 wire [1:0] csr_crmd_datm;
 assign csr_crmd_datf = crmd_dmw_bus[27:26];
 assign csr_crmd_datm = crmd_dmw_bus[25:24];
-assign inst_mem_type = csr_crmd_datf[0];
+//assign inst_mem_type = csr_crmd_datf[0];
 
 IF_stage u_IF_stage(
     .clk                (clk              ),

@@ -80,7 +80,7 @@ module mycpu_top(
     wire [127:0] icache_wr_data;
     wire         icache_wr_rdy;
     wire [ 31:0] inst_addr_vrtl;
-    wire         inst_mem_type;
+    //wire         inst_mem_type;
 /******************** CPU CORE ********************/
     mycpu_core u_mycpu_core(
         .clk(aclk),
@@ -107,8 +107,8 @@ module mycpu_top(
         .debug_wb_rf_we(debug_wb_rf_we),
         .debug_wb_rf_wnum(debug_wb_rf_wnum),
         .debug_wb_rf_wdata(debug_wb_rf_wdata),
-        .inst_addr_vrtl(inst_addr_vrtl), //icache
-        .inst_mem_type(inst_mem_type)   //icache
+        .inst_addr_vrtl(inst_addr_vrtl) //icache
+        //.inst_mem_type(inst_mem_type)   //icache
     );
 
 /******************** AXI BRIDGE ********************/
@@ -185,7 +185,7 @@ module mycpu_top(
 
         .valid  (cpu_inst_req),
         .op     (cpu_inst_wr),
-        .inst_mem_type(inst_mem_type),
+        //.inst_mem_type(inst_mem_type),
         .index  (cpu_inst_addr[11:4]),
         .tag    (cpu_inst_addr[31:12]),
         .offset (cpu_inst_addr[3:0]),

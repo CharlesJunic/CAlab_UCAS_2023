@@ -203,7 +203,7 @@ always @(posedge clk) begin
     else if(p_IF_ready_go)
         br_taken_r <= 1'b0;
     //else if(~br_stall & br_bus[32])
-    else if (inst_sram_req & ~p_IF_addr_ok & br_bus[32])
+    else if (inst_sram_req & ~p_IF_addr_ok & br_bus[32]&~br_stall)
         br_taken_r <= 1'b1;
 end
 always @(posedge clk) begin
